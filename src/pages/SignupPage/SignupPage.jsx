@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 function SignupPage() {
   const [username, setUsername] = useState('');
@@ -23,7 +26,17 @@ function SignupPage() {
       .then((response) => {
         navigate('/login');
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        toast.error(err.response.data.errorMessage, {
+          position: 'bottom-center',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      });
   };
   return (
     <div>
@@ -40,6 +53,17 @@ function SignupPage() {
 
         <button type="submit"> Signup</button>
       </form>
+      <ToastContainer
+        position="bottom-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </div>
   );
 }

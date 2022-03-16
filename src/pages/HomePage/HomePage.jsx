@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PokeCard from '../../components/PokeCard/PokeCard';
 import axios from 'axios';
 import './HomePage.css';
+import SignupPage from '../SignupPage/SignupPage';
 
 function HomePage() {
   const [pokemon, setPokemon] = useState([]);

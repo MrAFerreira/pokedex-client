@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { ThemeContext } from '../../context/theme.context';
 import { AuthContext } from '../../context/auth.context';
 
+//Comment for dev branch
+
 function Navbar() {
   const { theme, toggleTheme } = useContext(ThemeContext);
   const { loggedIn, user, logoutUser } = useContext(AuthContext);
